@@ -1,0 +1,136 @@
+﻿@model Ecommerce.Models.cadUsuarioModel;
+
+@{
+    ViewData["Title"] = "CADASTRE-SE -";    
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/css/cadastro.css" rel="stylesheet" />
+    <style>
+        .sucesso {
+            font-family: 'PT Sans Narrow', sans-serif;
+            color: greenyellow;
+            font-weight: bolder;
+            font-weight: 600;
+            font-size: 25px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation-name: mensagem;
+            animation-duration: 4s;
+            animation-timing-function: ease-out;
+            opacity: 0;
+        }
+
+        .falha {
+            font-family: 'PT Sans Narrow', sans-serif;
+            color: red;
+            font-weight: bolder;
+            font-weight: 600;
+            font-size: 25px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation-name: mensagem;
+            animation-duration: 4s;
+            animation-timing-function: ease-out;
+            opacity: 0;
+        }
+
+        @@keyframes mensagem {
+            10% {
+                opacity: 0.7;
+            }
+
+            20% {
+                opacity: 0.8;
+            }
+
+            30% {
+                opacity: 0.9;
+            }
+
+            60% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="box">
+            <div class="container">
+                <div class="form">
+                    <h2>Cadastre-se</h2>
+                    <form asp-action="cadastroUsuario">
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="inputBox">
+                            <input asp-for="nome_usuario" class="form-control" placeholder="Nome" required="required" type="text" />
+                            <span asp-validation-for="nome_usuario" class="text-danger"></span>
+                        </div>
+
+                        <div class="inputBox">
+                            <input asp-for="sobrenome_usuario" class="form-control" placeholder="Sobrenome" required="required" type="text" />
+                            <span asp-validation-for="sobrenome_usuario" class="text-danger"></span>
+                        </div>
+
+                        <div class="inputBox">
+                            <input asp-for="cpf" class="form-control" placeholder="CPF" required="required" id="cpf" oninput="maskcpf(this), VerificarCPF()" type="text" />
+                            <span asp-validation-for="cpf" class="text-danger"></span>
+                        </div>
+
+                        <div class="inputBox">
+                            <input asp-for="email" class="control-label" placeholder="E-mail" required="required" type="email" />
+                            <span asp-validation-for="email" class="text-danger"></span>
+                        </div>
+
+                        <div class="inputBox">
+                            <input asp-for="senha" class="form-control" placeholder="Crie uma senha" required="required" type="password" />
+                            <span asp-validation-for="senha" class="text-danger"></span>
+                        </div>
+
+                        <div class="inputBox">
+                            <input asp-for="cep" class="form-control" placeholder="Insira seu CEP" required="required" oninput="maskcep(this)" />
+                            <span asp-validation-for="cep" class="text-danger"></span>
+                        </div>
+
+                        <div class="inputBox">
+                            <input type="submit" value="Cadastrar" class="btn btn-primary" />
+                        </div>
+
+                        <div class="sucesso">
+                            <p>@ViewBag.Sucesso </p>
+                        </div>
+
+                        <div class="falha">
+                            <p>@ViewBag.Falha </p>
+                        </div>
+
+                        <p class="forget">Já possui uma conta ? <a href="~/Login/Login">Faça Login</a></p>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="~/js/mascaras.js"></script> <!-- MÁSCARAS JS PARA CPF E CEP -->
+
+</body>
+</html>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#esconder').fadeOut(6000, 0);
+        });        
+    </script>   
+}

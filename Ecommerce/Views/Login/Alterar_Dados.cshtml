@@ -1,0 +1,77 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model Usuario;
+@{ ViewData["Title"] = "MEUS DADOS - ";
+    Layout = "~/Views/Shared/_Layout.cshtml";}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/alterarmeusdados.css" />
+
+</head>
+<body>
+    <div class="content">
+        <div class="text">Alterar minhas informações</div>
+        <div class="p">Modifique os dados, e use o botão "Alterar" para concluir. </div>
+    </div>
+
+    <section>
+        <div class="box">
+            <div class="container">
+                <div class="form">
+                    <form asp-action="Alterar_Dados" method="POST">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="inputBox">
+                            <label asp-for="nome_usuario"> NOME:</label>
+                            <input class="input-style" asp-for="nome_usuario" name="nome_usuario" value="@Model.nome_usuario" required>
+                        </div>
+
+                        <div class="inputBox">
+                            <label asp-for="sobrenome_usuario"> SOBRENOME: </label>
+                            <input class="input-style" asp-for="sobrenome_usuario" name="sobrenome_usuario" value="@Model.sobrenome_usuario" required>
+                        </div>
+
+                        <div class="inputBox">
+                            <label asp-for="cpf">CPF:</label>
+                            <input class="input-style" asp-for="cpf" name="cpf" value="@Model.cpf" required="required" id="cpf" oninput="maskcpf(this), VerificarCPF()" type="text">
+                        </div>
+
+                        <div class="inputBox">
+                            <label asp-for="email">EMAIL:</label>
+                            <input class="input-style" asp-for="email" name="email" value="@Model.email" required="required" type="email">
+                        </div>
+
+                        <div class="inputBox">
+                            <label asp-for="senha">SENHA:</label>
+                            <input class="input-style" asp-for="senha" name="senha" value="@Model.senha" required="required" type="password">
+                        </div>
+
+                        <div class="inputBox">
+                            <label asp-for="cep">CEP:</label>
+                            <input class="input-style" asp-for="cep" name="cep" value="@Model.cep" required="required" oninput="maskcep(this)">
+                        </div>
+
+                        <div class="inputBox">
+                            <input class="input-style" asp-for="id" type="hidden" value="@Model.id" name="id" required>
+                        </div>
+
+                        <div class="inputBox">
+                            <input type="submit" value="Alterar" class="input-button">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="~/js/mascaras.js"></script>
+</body>
+</html>
+
+
+
+
+

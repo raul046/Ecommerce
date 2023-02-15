@@ -1,0 +1,60 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model IEnumerable<Usuario>
+@{ ViewData["Title"] = "LISTA USUÁRIOS -";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/listarusuarios.css" />
+</head>
+
+<body>
+
+    <div class="content">
+        <div class="text">Usuários Registrados</div>
+        <div class="p">A lista com todos os usuários registrados no sistema será exibida abaixo.</div>
+        <div class="p">Utilize o botão "EDITAR" para alterar informações de algum usuário, e "EXCLUIR" para remover do sistema.</div>
+        <div class="p">AVISO: Tenha cuidado ao remover, uma vez removido, as informações de registro não poderão ser recuperados. </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr class="head">
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Sobrenome</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Email</th>
+                <th scope="col">Senha</th>
+                <th scope="col">CEP</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Excluir</th>
+            </tr>
+        </thead>
+
+        <tbody>            
+            @foreach (Usuario u in Model)
+            {
+            <tr>
+                <th scope="row">@u.id</th>
+                <th scope="row">@u.nome_usuario</th>
+                <th scope="row">@u.sobrenome_usuario</th>
+                <th scope="row">@u.cpf</th>
+                <th scope="row">@u.email</th>
+                <th scope="row">@u.senha</th>
+                <th scope="row">@u.cep</th>
+
+                <th scope="row"><a href="/Login/Alterar_Usuario?id=@u.id"><img class="icones-content" src="~/images/editar.png"></a></th>
+
+                <th scope="row"><a onclick="return confirm('Deseja realmente excluir este Usuário ?');" href="/Login/Excluir_Usuario?id=@u.id"><img class="icones-content" src="~/images/excluir.png"></a></th>
+            </tr>            
+                }
+            
+        </tbody>
+    </table>
+</body>
+</html>

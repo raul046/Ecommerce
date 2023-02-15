@@ -1,0 +1,256 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    background: url(../images/black-product-background.jpg);
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    height: 80px;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    backdrop-filter: blur(5px);
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-family: "PT Sans Narrow", sans-serif;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1.5rem 6rem;
+}
+
+.icones-img {
+    width: 18px;
+    height: 18px;
+}
+
+.right-items {
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: greenyellow;
+}
+
+.login-text {
+    margin-right: 2px;
+    letter-spacing: 2px;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    letter-spacing: 3px;
+}
+
+    .logo h1 {
+        font-weight: 600;
+        font-size: 30px;
+        color: white;
+        text-decoration: none;
+    }
+
+.nav-list {
+    display: flex;
+    align-items: center;
+}
+
+    .nav-list ul {
+        letter-spacing: 2px;
+        display: flex;
+        justify-content: center;
+        list-style: none;
+    }
+
+        .nav-list ul li i {
+            font-size: 15px;
+            margin-left: 2px;
+        }
+
+.nav-item {
+    margin: 0 10px;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 1.15rem;
+    color: #fff;
+    font-weight: 400;
+}
+
+header .nav-list ul {
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+}
+
+    header .nav-list ul li {
+        margin-left: 10px;
+        position: relative;
+        float: left;
+    }
+
+        header .nav-list ul li a {
+            font-family: "PT Sans Narrow", sans-serif;
+            margin-top: 10px;
+            font-weight: 400;
+            font-size: 18px;
+            padding: 0 5px;
+            color: white;
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+            header .nav-list ul li a:hover {
+                color: white;
+                border-bottom: 2px solid gold;
+                z-index: 1000;
+            }
+
+        header .nav-list ul li ul {
+            position: absolute;
+            right: 0;
+            width: 200px;
+            display: none;
+        }
+
+            header .nav-list ul li ul li { /* =========================== LOGIN E CADASTRAR:HOVER =========================== */
+                text-align: center;
+                justify-content: center;
+                margin-top: 1px;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.2);
+                overflow: hidden;
+                border-radius: 5px;
+            }
+
+                header .nav-list ul li ul li ul {
+                    left: 0px;
+                    top: 0;
+                }
+
+        header .nav-list ul li:hover > ul {
+            display: initial;
+            z-index: 1000;
+        }
+
+
+
+
+
+@media screen and (max-width: 650px) {
+
+    .logo {
+        display: none;
+    }
+
+    .right-items {
+        margin-right: 10px;
+        font-size: 15px;
+    }
+
+    .icones-img {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+
+
+
+
+.btn {
+    border: 0;
+    border-radius: 4px;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    margin-right: 25px;
+    border: 1px solid gold;
+}
+.btn:hover{
+    opacity:0.7;
+}
+
+.btn i {
+        color: white;
+    }
+
+.overlay {
+    height: 100%;
+    width: 0;    
+    background-color: #222222;
+    z-index: 1000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-x: hidden;
+    transition: all 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.overlay a {    
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 34px;
+    transition: 0.3s;
+    letter-spacing: 3px;
+    border: 1px solid gold;
+    margin-top:25px;
+    border-radius:10px;
+    padding:8px;
+    
+}
+
+    .overlay a:hover, .overlay a:focus {
+        color: gold;
+    }
+
+.overlay .closebtn {
+    position: absolute;
+    top: 25px;
+    right: 45px;
+    font-size: 60px;   
+    border:none;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay a {
+        font-size: 20px;
+    }
+
+    .overlay, .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}

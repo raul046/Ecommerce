@@ -1,0 +1,60 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model Produtos;
+@{ ViewData["Title"] = "Editar Informações";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/alterarcardapio.css" />
+</head>
+<body>
+    <div class="content">
+        <div class="text">Alterar informações dos Lanches</div>
+        <div class="p">Modifique os dados, e use o botão "Alterar" para concluir. </div>
+    </div>
+
+    <section>
+        <div class="box">
+            <div class="container">
+                <div class="form">
+                    <form asp-action="Alterar_Cardapio" method="POST">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="inputBox">
+                            <label  asp-for="nome_produto"> NOME DO LANCHE:</label>
+                            <input class="input-style" asp-for="nome_produto" name="nome_produto" value="@Model.nome_produto" required>
+                        </div>
+
+                        <div class="inputBox">
+                            <label  asp-for="descricao"> DESCRIÇÃO: </label>
+                            <input class="input-style" asp-for="descricao" name="descricao" value="@Model.descricao" required maxlength="50">
+                        </div>
+
+                        <div class="inputBox">
+                            <label asp-for="valor">VALOR R$:</label>
+                            <input class="input-style" asp-for="valor" name="valor" value="@Model.valor" required>
+                        </div>
+
+                        <div class="inputBox">
+                            <input class="input-style" asp-for="id" type="hidden" value="@Model.id" name="id" required>
+                        </div>
+
+                        <div class="inputBox">
+                            <input type="submit" value="Alterar" class="input-button">
+                        </div>
+                    </form>
+                </div>
+            </div>
+       </div>
+    </section>
+</body>
+</html>
+
+
+               
+
+           
+

@@ -1,0 +1,55 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model IEnumerable<Produtos>
+@{ ViewData["Title"] = "LISTA LANCHES -";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    }
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/listarcardapioadmin.css" />
+    </head>
+
+<body>
+
+    <div class="content">
+        <div class="text">Lanches Registrados</div>
+        <div class="p">A lista com todos os lanches registrados no sistema será exibida abaixo.</div>
+        <div class="p">Utilize o botão "EDITAR" para alterar informações do lanche, e "EXCLUIR" para remover o lanche do sistema.</div>
+        <div class="p">AVISO: Tenha cuidado ao remover um lanche. Uma vez removido, as informações do registo relacionados ao lanche não poderão ser recuperados. </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr class="head">
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Excluir</th>
+            </tr>            
+        </thead>
+
+        <tbody>
+            @foreach (Produtos p in Model)
+            {
+            <tr>
+                <th scope="row">@p.id</th>
+                <th scope="row">@p.nome_produto</th>       
+                <th scope="row">@p.descricao</th>
+                <th scope="row">@p.valor</th>
+
+                <th scope="row"><a href="/Cardapio/Alterar_Cardapio?id=@p.id"><img class="icones-content" src="~/images/editar.png"></a></th>
+
+                <th scope="row"><a onclick="return confirm('Deseja realmente excluir esse Lanche?');" href="/Cardapio/Excluir_Produto?id=@p.id"><img class="icones-content" src="~/images/excluir.png"></a></th>
+
+            </tr>
+            }
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,68 @@
+﻿
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap");
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "PT Sans Narrow", sans-serif;
+    
+}
+
+body {
+    background: url(../images/black-product-background.jpg);
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+.content { /*=========================== Titulo "Usuários Registrados" ===========================*/
+    position: fixed;
+    top: 15%;
+    left: 25%;
+    transform: translate(-25%, -25%);
+    text-align: center;
+    width: 100%;
+    padding: 5px 10px;
+    border-bottom: 4px solid gold;
+}
+
+    .content .text {
+        color: white;
+        letter-spacing: 2px;
+        font-size: 30px;
+        font-weight: 400;
+        padding: 5px 0;
+    }
+
+    .content .p {
+        text-align: center;
+        letter-spacing: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        font-size: 20px;
+        font-weight: 400;
+        color: white;
+
+    }
+
+
+.table {
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    width: 100%;
+    margin-top: 20rem;
+    color: white;
+}
+
+.icones-content {
+    width: 35px;
+    height: 35px;
+    margin-right: 8px;
+}

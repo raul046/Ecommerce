@@ -1,0 +1,69 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model AtendimentoModel
+@{
+    ViewData["Title"] = "FALE CONOSCO - ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/atendimento.css" />
+</head>
+<body>
+    <div class="content">
+        <div class="text">Fale Conosco!</div>
+        <div class="p"></div>
+    </div>
+
+    <section>
+        <div class="box">
+            <div class="container">
+                <div class="form">
+                    <h2>Fale Conosco</h2>
+                    <form asp-action="Atendimento" method="POST">
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="inputBox">
+                            <input asp-for="nome_usuario" class="form-control" placeholder="Nome:" required="required" type="text" />
+                            <span asp-validation-for="nome_usuario" class="text-danger"></span>
+                        </div>
+
+                        <div class="inputBox">
+                            <input asp-for="sobrenome_usuario" class="form-control" placeholder="Sobrenome:" required="required" type="text" />
+                            <span asp-validation-for="sobrenome_usuario" class="text-danger"></span>
+                        </div>
+
+                        <div class="inputBox">
+                            <input asp-for="email" class="form-control" placeholder="Email:" required="required" type="text" />
+                            <span asp-validation-for="email" class="text-danger"></span>
+                        </div>
+
+                        <div class="area">
+                            <textarea asp-for="mensagem" class="form-control" placeholder="Mensagem:" cols="35" rows="4" maxlength="150"></textarea>
+                            <span asp-validation-for="mensagem" class="text-danger"></span>
+                        </div>
+
+                        <div class="inputBox">
+                            <input type="submit" value="Enviar" class="btn btn-primary" />
+                        </div>
+
+                        <p class="mensagem-style">@ViewBag.Registro</p>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.954607890268!2d-47.058119684418386!3d-22.915045043928068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8cf3303ceff43%3A0xea485c60a4b21ef5!2sEscola%20SENAI%20Prof.%20Dr.%20Euryclides%20de%20Jesus%20Zerbini!5e0!3m2!1spt-BR!2sbr!4v1637619729602!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+
+
+
+</body>
+</html>

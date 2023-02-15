@@ -1,0 +1,116 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model List<Produtos>
+@{
+    ViewData["Title"] = "CARDÁPIO -";    
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/css/cardapio.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'> <!-- ICONES BOXICONS -->
+</head>
+<body>
+
+    <div class="content">
+        <div class="text">Nosso Cardápio</div>
+    </div>
+
+    <main class="principal">    
+        <div class="pacotes-cards">
+
+            <style> /* LANCHE SEM REGISTRO EM BANCO PARA NÃO DEIXAR EM BRANCO */
+                .card01 {
+                    background-image: url("../imagem_produto/product-1.png");
+                    background-size: contain;
+                    background-position: top;
+                    background-repeat: no-repeat;
+                }
+            </style>
+            <div class="cards cards-text card01">
+                <h5>Lanche 1</h5>
+                <p>
+                    Descrição: Descrição do Lanche 1
+                    <br />
+                    Valor R$: 45,00
+
+                    <div class="inputBox" method="POST">
+                        <input type="submit" value="Add ao Carrinho" class="btn btn-primary" />
+                    </div>
+                </p>
+            </div>
+
+            <style> /* LANCHE SEM REGISTRO EM BANCO PARA NÃO DEIXAR EM BRANCO */
+                .card02 {
+                    background-image: url("../imagem_produto/product-2.png");
+                    background-size: contain;
+                    background-position: top;
+                    background-repeat: no-repeat;
+                }
+            </style>
+            <div class="cards cards-text card02">
+                <h5>Lanche 2</h5>
+                <p>
+                    Descrição: Descrição do Lanche 2
+                    <br />
+                    Valor R$: 25,00
+
+                    <div class="inputBox" method="POST">
+                        <input type="submit" value="Add ao Carrinho" class="btn btn-primary" />
+                    </div>
+                </p>
+            </div>
+
+            <style> /* LANCHE SEM REGISTRO EM BANCO PARA NÃO DEIXAR EM BRANCO */
+                
+                .card03 {
+                    background-image: url("../imagem_produto/product-3.png");
+                    background-size: contain;
+                    background-position: top;
+                    background-repeat: no-repeat;
+                }
+            </style>
+            <div class="cards cards-text card03">
+                <h5>Lanche 3</h5>
+                <p>
+                    Descrição: Descrição do Lanche 3
+                    <br />
+                    Valor R$: 65,00
+
+                    <div class="inputBox" method="POST">
+                        <input type="submit" value="Add ao Carrinho" class="btn btn-primary" />
+                    </div>
+                </p>
+            </div>
+
+
+            @foreach (Produtos p in Model) /* ============================== LANCHES QUE APARECEM APÓS REGISTRO DO ADMINSTRADOR ============================== */
+            {
+                <style>
+                    .card06 {
+                        background-image: url("../imagem_produto/product-8.png");
+                        background-size: contain;
+                        background-position: top;
+                        background-repeat: no-repeat;
+                    }
+                </style>
+                <div class="cards cards-text card06">
+                    <h5>@p.nome_produto</h5>
+                    <p>
+                        Descrição: @p.descricao
+                        <br />
+                        Valor R$: @p.valor
+
+                        <div class="inputBox" method="POST">
+                            <input type="submit" value="Add ao Carrinho" class="btn btn-primary" />
+                        </div>
+                    </p>
+                </div>
+            }
+        </div>
+    </main>
+</body> 
+</html>

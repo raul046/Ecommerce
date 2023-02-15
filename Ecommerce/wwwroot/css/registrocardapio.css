@@ -1,0 +1,143 @@
+﻿
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap");
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "PT Sans Narrow", sans-serif;
+}
+
+body {
+    background: url(../images/black-product-background.jpg);
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+.content { /*=========================== Titulo "Registro de lanches" ===========================*/
+    position: fixed;
+    top: 15%;
+    left: 25%;
+    transform: translate(-25%, -25%);
+    text-align: center;
+    width: 100%;
+    padding: 0 10px;
+}
+
+    .content .text {
+        color: white;
+        letter-spacing: 2px;
+        font-size: 30px;
+        font-weight: 400;
+        padding: 5px 0;
+    }
+
+    .content .p {
+        text-align: center;
+        letter-spacing: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        font-size: 20px;
+        font-weight: 400;
+        color: white;
+    }
+
+section { /*=========================== Formulário "Registro de lanches" ===========================*/
+    align-content: center;
+    justify-content: center;
+}
+
+.box {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    width: 40rem;
+    margin-top: 15rem;
+    align-content: center;
+    justify-content: center;
+}
+
+.container {
+    position: absolute;
+    width: 600px;
+    min-height: 40rem;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-right: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.form {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+}
+
+    .form h2 {
+        position: relative;
+        margin: 0;
+        color: aliceblue;
+        font-size: 25px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        margin-bottom: 40px;
+    }
+
+        .form h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 80px;
+            height: 5px;
+            background: whitesmoke;
+        }
+
+.inputBox {
+    text-transform: lowercase;
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+.form .inputBox input {
+    width: 100%;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 35px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-right: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: azure;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+    .form .inputBox input::placeholder {
+        color: white;
+    }
+
+    .form .inputBox input[type="submit"] {
+        background: lightcyan;
+        color: lightcoral;
+        cursor: pointer;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }

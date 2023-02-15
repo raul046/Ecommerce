@@ -1,0 +1,89 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model Produtos;
+
+@{
+    ViewData["Title"] = "REGISTRO -";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/registrocardapio.css" />   
+    <style>
+        .mensagem-style {
+            font-family: 'PT Sans Narrow', sans-serif;
+            color: greenyellow;
+            font-weight: bolder;
+            font-weight: 600;
+            font-size: 25px;
+            letter-spacing: 3px;
+            justify-content:center;
+            align-items:center;
+            text-transform: uppercase;
+            animation-name: mensagem;
+            animation-duration: 4s;
+            animation-timing-function: ease-out;
+            opacity: 0;
+        }
+@@keyframes mensagem{
+  10%{opacity: 0.7;}
+  20%{opacity: 0.8;}
+  30%{opacity: 0.9;}
+  60%{opacity: 1;}
+  100%{opacity: 1;}
+}
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="text">Registro de Lanches</div>
+        <div class="p">Preecha as informações dos lanches no formulário, e use o botão "Salvar" para registrá-los no sistema. </div>
+    </div>
+
+    <section>
+        <div class="box">
+            <div class="container">
+                <div class="form">
+                    <h2>Registrar Lanches</h2>
+                    <form asp-action="Registro_Cardapio" method="post" enctype="multipart/form-data">
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="inputBox">
+                            <input asp-for="nome_produto" class="form-control" placeholder="Nome do lanche" required="required" type="text" />
+                            <span asp-validation-for="nome_produto" class="text-danger"></span>
+                        </div>
+
+                        <div class="inputBox">
+                            <input asp-for="descricao" class="form-control" placeholder="Descrição" required="required" type="text" maxlength="50"/>
+                            <span asp-validation-for="descricao" class="text-danger"></span>
+                        </div>
+
+                        <div class="inputBox">
+                            <input asp-for="valor" class="form-control" placeholder="Valor R$" required="required" type="text" />
+                            <span asp-validation-for="valor" class="text-danger"></span>
+                        </div>
+
+                        @*<div class="inputBox">
+                            <input type="file" name="arquivo" asp-for="img"/>
+                            <span asp-validation-for="img" class="text-danger"></span>
+                        </div>*@
+
+                        <div class="inputBox">
+                            <input type="submit" value="Salvar" class="btn btn-primary" />
+                        </div>
+
+                        <p class="mensagem-style">@ViewBag.Registro</p>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+</body>
+</html>
